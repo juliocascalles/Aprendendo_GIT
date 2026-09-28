@@ -88,9 +88,10 @@ def exemplo():
         NOVO_RECURSO = "[feat] Fiz exemplo de como usar git"
         CORRECAO_BUG = "[fix] Não identificava repositório novo."
         DOCUMENTACAO = "[doc] Novo README.md do projeto!"
+        CONFIGURACAO = '[chore] Adicionado .gitignore'
         if not git.diff(): # <<--- Possivelmente primeira vez, repo. criado recentemente
             git.new_branch = TAREFA
-        git.commit(CORRECAO_BUG)
+        git.commit(CONFIGURACAO)
         git.push()
 # ============================================================
 
