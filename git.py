@@ -1,3 +1,4 @@
+# >>>>>>>>>>>>>> VEJA A FUNÇÃO `exemplo`, NO FINAL DO ARQUIVO !!! <<<<<<<<<<<<<<<<<<<<<<<<<<<<
 import os
 import subprocess
 
@@ -70,9 +71,8 @@ def exemplo():
     """
     Fluxo de trabalho:  
         * Pegar uma tarefa, 
-        * Baixar o repo,
-        * Fazer as alterações, 
-        * Testar
+        * Baixar o repositório,
+        * Fazer as alterações, testar...
         * Subir de volta para o repositório
     """
     print('Você deseja...?')
@@ -86,10 +86,11 @@ def exemplo():
         git.pull() # <<---- Pega alterações de outros programadores
     elif op in ('f', 'F'):
         NOVO_RECURSO = "[feat] Fiz exemplo de como usar git"
-        CORRECAO_BUG = "[fix] Não estava funcionando..."
+        CORRECAO_BUG = "[fix] Não identificava repositório novo."
         DOCUMENTACAO = "[doc] Novo README.md do projeto!"
-        git.new_branch = TAREFA
-        git.commit(NOVO_RECURSO)
+        if not git.diff(): # <<--- Possivelmente primeira vez, repo. criado recentemente
+            git.new_branch = TAREFA
+        git.commit(CORRECAO_BUG)
         git.push()
 # ============================================================
 
