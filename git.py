@@ -68,7 +68,7 @@ class Git:
 # ====== Exemplo de como usar ... ============================
 def exemplo():
     """
-    Fluxo de trabalho: 
+    Fluxo de trabalho:  
         * Pegar uma tarefa, 
         * Baixar o repo,
         * Fazer as alterações, 
@@ -80,14 +80,15 @@ def exemplo():
     print('(F)inalizar um desenvolvimento')
     op = input('Escolha sua opção: ')
     git = Git('Aprendendo_GIT', 'juliocascalles')
+    TAREFA = 'A001' # <<--- Como seria no JIRA, por exemplo...
+    git.checkout(TAREFA, check_branch=True)
     if op in ('i', 'I'):
-        TAREFA = 'A001' # <<--- Como seria no JIRA, por exemplo...
-        git.checkout(TAREFA, check_branch=True)
         git.pull() # <<---- Pega alterações de outros programadores
     elif op in ('f', 'F'):
         NOVO_RECURSO = "[feat] Fiz exemplo de como usar git"
         CORRECAO_BUG = "[fix] Não estava funcionando..."
         DOCUMENTACAO = "[doc] Novo README.md do projeto!"
+        git.new_branch = TAREFA
         git.commit(NOVO_RECURSO)
         git.push()
 # ============================================================
